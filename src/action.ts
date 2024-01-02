@@ -74,7 +74,7 @@ export default async function main() {
     /true/i.test(shouldFetchAllTags)
   );
 
-  console.log(`Valid Tag: ${validTags}`);
+  console.log(`Valid Tag: ${tagPrefix}, ${validTags}, ${identifier}`);
   const latestTag = getLatestTag(validTags, prefixRegex, tagPrefix);
   const latestPrereleaseTag = getLatestPrereleaseTag(
     validTags,
