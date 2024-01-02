@@ -73,12 +73,16 @@ export default async function main() {
     prefixRegex,
     /true/i.test(shouldFetchAllTags)
   );
+
+  console.log(`Valid Tag: ${validTags}`);
   const latestTag = getLatestTag(validTags, prefixRegex, tagPrefix);
   const latestPrereleaseTag = getLatestPrereleaseTag(
     validTags,
     identifier,
     prefixRegex
   );
+
+  console.log(`Latest Tag: ${latestTag}, ${latestPrereleaseTag}`);
 
   let commits: Await<ReturnType<typeof getCommits>>;
 
@@ -127,7 +131,7 @@ export default async function main() {
       {
         releaseRules: mappedReleaseRules
           ? // analyzeCommits doesn't appreciate rules with a section /shrug
-            mappedReleaseRules.map(({ section, ...rest }) => ({ ...rest }))
+          mappedReleaseRules.map(({ section, ...rest }) => ({ ...rest }))
           : undefined,
       },
       { commits, logger: { log: console.info.bind(console) } }
