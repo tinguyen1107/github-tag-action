@@ -13,6 +13,7 @@ export async function getValidTags(
   shouldFetchAllTags: boolean
 ) {
   const tags = await listTags(shouldFetchAllTags);
+  console.log('List tags: ', tags);
 
   const invalidTags = tags.filter(
     (tag) =>
