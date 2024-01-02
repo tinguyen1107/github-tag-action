@@ -12,7 +12,7 @@ export async function getValidTags(
   prefixRegex: RegExp,
   shouldFetchAllTags: boolean
 ) {
-  const tags = await listTags(shouldFetchAllTags);
+  const tags = await listTags(true);
   console.log('List tags: ', tags);
 
   const invalidTags = tags.filter(
